@@ -15,6 +15,7 @@
 		F7695C061EFB16F900E55BEB /* flixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7695C051EFB16F900E55BEB /* flixTests.swift */; };
 		F7695C111EFB16F900E55BEB /* flixUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7695C101EFB16F900E55BEB /* flixUITests.swift */; };
 		F7695C1F1EFB20FE00E55BEB /* NowPlayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7695C1E1EFB20FE00E55BEB /* NowPlayingViewController.swift */; };
+		F7695C231EFB368500E55BEB /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7695C221EFB368500E55BEB /* MovieCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		F7695C101EFB16F900E55BEB /* flixUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = flixUITests.swift; sourceTree = "<group>"; };
 		F7695C121EFB16F900E55BEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F7695C1E1EFB20FE00E55BEB /* NowPlayingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingViewController.swift; sourceTree = "<group>"; };
+		F7695C221EFB368500E55BEB /* MovieCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				F7695BF71EFB16F900E55BEB /* Assets.xcassets */,
 				F7695BF91EFB16F900E55BEB /* LaunchScreen.storyboard */,
 				F7695BFC1EFB16F900E55BEB /* Info.plist */,
+				F7695C221EFB368500E55BEB /* MovieCell.swift */,
 			);
 			path = flix;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 			files = (
 				F7695BF31EFB16F900E55BEB /* ViewController.swift in Sources */,
 				F7695C1F1EFB20FE00E55BEB /* NowPlayingViewController.swift in Sources */,
+				F7695C231EFB368500E55BEB /* MovieCell.swift in Sources */,
 				F7695BF11EFB16F900E55BEB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
