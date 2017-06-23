@@ -9,33 +9,70 @@
 import UIKit
 import AlamofireImage
 
-class NowPlayingViewController: UIViewController, UITableViewDataSource {
+class NowPlayingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
-   
+    var searchActive : Bool = false
+    
+    //CONFUSED
+    //var filtered: [String] = []
+    //var data = ["title"]
     
     var movies: [[String: Any]] = []
     var refreshControl: UIRefreshControl!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        activityIndicator.startAnimating()
+        //self.view.addSubview(activityIndicator)
+        
         
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(NowPlayingViewController.didPullToRefresh(_:)), for: .valueChanged)
         tableView.insertSubview(refreshControl, at: 0)
         
        
-
         
+       
+        
+        //set up delegates
         tableView.dataSource = self
+        tableView.delegate = self
+        //searchBar.delegate = self
+        
         fetchMovies()
-        activityIndicator.startAnimating()
-        activityIndicator.stopAnimating()
         
     }
+    
+    /*
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        searchActive = true;
+    }
+    
+    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        searchActive = false;
+    }
+*/
+    
+  
+    
+  
+
     
 
 
@@ -65,14 +102,16 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
                 self.movies = movies
                 self.tableView.reloadData()
                 self.refreshControl.endRefreshing()
+                self.activityIndicator.stopAnimating()
             }
         }
         
         task.resume()
     }
     
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //temp
         return movies.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -96,6 +135,12 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
         
         return cell
     }
+    
+    
+    
+   
+    
+    
 
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
