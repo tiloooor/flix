@@ -52,20 +52,13 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Hv-I7-a6v">
-                                                    <rect key="frame" x="8" y="-7" width="367" height="279"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <connections>
-                                                        <segue destination="P4m-u6-3AB" kind="show" id="D2K-b4-LHv"/>
-                                                    </connections>
-                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="overviewLabel" destination="LRD-9m-Oys" id="s8N-MZ-ENf"/>
                                             <outlet property="posterImageView" destination="6ZO-pt-txe" id="fMz-A8-G1j"/>
                                             <outlet property="titleLabel" destination="oSa-b3-zkT" id="nZY-qH-Kzc"/>
-                                            <segue destination="P4m-u6-3AB" kind="showDetail" id="yLp-OA-eQx"/>
+                                            <segue destination="P4m-u6-3AB" kind="show" id="Isn-cx-1vO"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -76,16 +69,17 @@
                     <navigationItem key="navigationItem" title="Movies" id="Mih-uT-Cvq"/>
                     <connections>
                         <outlet property="TableView" destination="G1s-9s-IVn" id="t0S-4p-Ull"/>
+                        <outlet property="tableView" destination="G1s-9s-IVn" id="SZm-C3-0Pe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1268" y="-15.742128935532236"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="5eX-lT-iye">
             <objects>
-                <viewController id="P4m-u6-3AB" sceneMemberID="viewController">
+                <viewController id="P4m-u6-3AB" customClass="DetailViewController" customModule="flix" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9zm-r9-bam"/>
                         <viewControllerLayoutGuide type="bottom" id="gIu-3Z-gQI"/>
@@ -93,12 +87,50 @@
                     <view key="view" contentMode="scaleToFill" id="W0U-93-BXp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nTH-4B-dBZ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="315"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ds7-ef-391">
+                                <rect key="frame" x="16" y="215" width="129" height="195"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Wonder Woman" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dMe-EY-MHb">
+                                <rect key="frame" x="191" y="323" width="123" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Wonder Woman" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="853-qU-8nB">
+                                <rect key="frame" x="191" y="389" width="123" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Wonder Woman" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j1s-f0-dZq">
+                                <rect key="frame" x="22" y="449" width="346" height="198"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="backDropImageView" destination="nTH-4B-dBZ" id="ahJ-Zd-crv"/>
+                        <outlet property="overviewLabel" destination="j1s-f0-dZq" id="TGz-ha-792"/>
+                        <outlet property="posterimageView" destination="ds7-ef-391" id="Y5O-WT-8bY"/>
+                        <outlet property="releaseDateLabel" destination="853-qU-8nB" id="NuA-s7-khg"/>
+                        <outlet property="titleLabel" destination="dMe-EY-MHb" id="bZt-pj-ej4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L5l-pA-fAT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2214" y="-15"/>
+            <point key="canvasLocation" x="2213.5999999999999" y="-15.742128935532236"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pIZ-C8-tai">
@@ -119,7 +151,4 @@
             <point key="canvasLocation" x="348" y="-14.842578710644679"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="yLp-OA-eQx"/>
-    </inferredMetricsTieBreakers>
 </document>

@@ -11,7 +11,6 @@
 		679102C20CCBFE50091848D4 /* Pods_flixTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D5EDA6BC544ECB4564E15C8 /* Pods_flixTests.framework */; };
 		A824A856711CCCF118B2AE5E /* Pods_flix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DF04F9201F9D099CD44FE05 /* Pods_flix.framework */; };
 		F7695BF11EFB16F900E55BEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7695BF01EFB16F900E55BEB /* AppDelegate.swift */; };
-		F7695BF31EFB16F900E55BEB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7695BF21EFB16F900E55BEB /* ViewController.swift */; };
 		F7695BF61EFB16F900E55BEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7695BF41EFB16F900E55BEB /* Main.storyboard */; };
 		F7695BF81EFB16F900E55BEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7695BF71EFB16F900E55BEB /* Assets.xcassets */; };
 		F7695BFB1EFB16F900E55BEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7695BF91EFB16F900E55BEB /* LaunchScreen.storyboard */; };
@@ -19,6 +18,7 @@
 		F7695C111EFB16F900E55BEB /* flixUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7695C101EFB16F900E55BEB /* flixUITests.swift */; };
 		F7695C1F1EFB20FE00E55BEB /* NowPlayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7695C1E1EFB20FE00E55BEB /* NowPlayingViewController.swift */; };
 		F7695C231EFB368500E55BEB /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7695C221EFB368500E55BEB /* MovieCell.swift */; };
+		F7AF328E1EFC8EB4000A9562 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AF328D1EFC8EB4000A9562 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +50,6 @@
 		EAD3CCDF2097206B8E9CE196 /* Pods-flixUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-flixUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-flixUITests/Pods-flixUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F7695BED1EFB16F900E55BEB /* flix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = flix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7695BF01EFB16F900E55BEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F7695BF21EFB16F900E55BEB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F7695BF51EFB16F900E55BEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F7695BF71EFB16F900E55BEB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F7695BFA1EFB16F900E55BEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -63,6 +62,7 @@
 		F7695C121EFB16F900E55BEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F7695C1E1EFB20FE00E55BEB /* NowPlayingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingViewController.swift; sourceTree = "<group>"; };
 		F7695C221EFB368500E55BEB /* MovieCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
+		F7AF328D1EFC8EB4000A9562 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,14 +141,13 @@
 		F7695BEF1EFB16F900E55BEB /* flix */ = {
 			isa = PBXGroup;
 			children = (
-				F7695C1E1EFB20FE00E55BEB /* NowPlayingViewController.swift */,
+				F7AF328C1EFC8DB9000A9562 /* Views */,
+				F7AF328B1EFC8DAC000A9562 /* ViewControllers */,
 				F7695BF01EFB16F900E55BEB /* AppDelegate.swift */,
-				F7695BF21EFB16F900E55BEB /* ViewController.swift */,
 				F7695BF41EFB16F900E55BEB /* Main.storyboard */,
 				F7695BF71EFB16F900E55BEB /* Assets.xcassets */,
 				F7695BF91EFB16F900E55BEB /* LaunchScreen.storyboard */,
 				F7695BFC1EFB16F900E55BEB /* Info.plist */,
-				F7695C221EFB368500E55BEB /* MovieCell.swift */,
 			);
 			path = flix;
 			sourceTree = "<group>";
@@ -169,6 +168,23 @@
 				F7695C121EFB16F900E55BEB /* Info.plist */,
 			);
 			path = flixUITests;
+			sourceTree = "<group>";
+		};
+		F7AF328B1EFC8DAC000A9562 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F7695C1E1EFB20FE00E55BEB /* NowPlayingViewController.swift */,
+				F7AF328D1EFC8EB4000A9562 /* DetailViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		F7AF328C1EFC8DB9000A9562 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F7695C221EFB368500E55BEB /* MovieCell.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -452,8 +468,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7695BF31EFB16F900E55BEB /* ViewController.swift in Sources */,
 				F7695C1F1EFB20FE00E55BEB /* NowPlayingViewController.swift in Sources */,
+				F7AF328E1EFC8EB4000A9562 /* DetailViewController.swift in Sources */,
 				F7695C231EFB368500E55BEB /* MovieCell.swift in Sources */,
 				F7695BF11EFB16F900E55BEB /* AppDelegate.swift in Sources */,
 			);
@@ -706,6 +722,7 @@
 				F7695C171EFB16F900E55BEB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F7695C181EFB16F900E55BEB /* Build configuration list for PBXNativeTarget "flixTests" */ = {
 			isa = XCConfigurationList;
@@ -714,6 +731,7 @@
 				F7695C1A1EFB16F900E55BEB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F7695C1B1EFB16F900E55BEB /* Build configuration list for PBXNativeTarget "flixUITests" */ = {
 			isa = XCConfigurationList;
@@ -722,6 +740,7 @@
 				F7695C1D1EFB16F900E55BEB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
