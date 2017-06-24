@@ -9,7 +9,8 @@
 import UIKit
 import AlamofireImage
 
-class NowPlayingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+class NowPlayingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate
+ {
 
     
     
@@ -19,7 +20,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UITable
     var filteredMovies: [[String: Any]] = []
     var movies: [[String: Any]] = []
     var refreshControl: UIRefreshControl!
-    
+    var alertController: UIAlertController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +30,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UITable
         
         
         refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(NowPlayingViewController.didPullToRefresh(_:)), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(didPullToRefresh(_:)), for: .valueChanged)
         tableView.insertSubview(refreshControl, at: 0)
         
        
@@ -43,13 +44,21 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UITable
         searchBar.delegate = self
         filteredMovies = movies
         
+        alertController = UIAlertController(title: "No Wifi", message: "Message", preferredStyle: .alert)
+        // create a cancel action
+        let cancelAction = UIAlertAction(title: "OK", style: .cancel) { (action) in
+            self.fetchMovies()
+        }
+        // add the cancel action to the alertController
+        alertController.addAction(cancelAction)
+
+        
         fetchMovies()
     }
     
     
     
     func didPullToRefresh(_ refreshControl: UIRefreshControl) {
-        
         
        fetchMovies()
         
@@ -114,6 +123,9 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UITable
             //This will run when the network request returns
             if let error = error  {
                 print(error.localizedDescription)
+                self.present(self.alertController, animated: true) {
+                    // optional code for what happens after the alert controller has finished presenting
+                }
             } else if let data = data {
                 let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
                 print(dataDictionary)
@@ -124,7 +136,6 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UITable
                 self.tableView.reloadData()
                 self.refreshControl.endRefreshing()
                 self.activityIndicator.stopAnimating()
-                
             }
         }
         
