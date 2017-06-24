@@ -1,6 +1,6 @@
 # flix
 
-# Project 2 - *Name of App Here*
+# Project 2 - Flix
 
 **Name of your app** is a movies app using the [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
@@ -40,7 +40,7 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://imgur.com/LQTNLAx' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://imgur.com/LQTNLAx.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
