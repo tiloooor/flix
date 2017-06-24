@@ -9,20 +9,14 @@
 import UIKit
 import AlamofireImage
 
-class NowPlayingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class NowPlayingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
 
     
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var searchBar: UISearchBar!
-    
-    var searchActive : Bool = false
-    
-    //CONFUSED
-    //var filtered: [String] = []
-    //var data = ["title"]
-    
+    var filteredMovies: [[String: Any]] = []
     var movies: [[String: Any]] = []
     var refreshControl: UIRefreshControl!
     
@@ -31,7 +25,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UITable
         super.viewDidLoad()
         
         activityIndicator.startAnimating()
-        //self.view.addSubview(activityIndicator)
+        
         
         
         refreshControl = UIRefreshControl()
@@ -39,86 +33,40 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UITable
         tableView.insertSubview(refreshControl, at: 0)
         
        
+        self.navigationController?.navigationBar.barTintColor = UIColor.black
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         
-       
         
         //set up delegates
         tableView.dataSource = self
         tableView.delegate = self
-        //searchBar.delegate = self
+        searchBar.delegate = self
+        filteredMovies = movies
         
         fetchMovies()
-        
     }
     
-    /*
-    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
-        searchActive = true;
-    }
     
-    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
-        searchActive = false;
-    }
-    
-    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
-        searchActive = false;
-    }
-    
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        searchActive = false;
-    }
-*/
-    
-  
-    
-  
-
-    
-
-
-   
     
     func didPullToRefresh(_ refreshControl: UIRefreshControl) {
         
-        fetchMovies()
+        
+       fetchMovies()
+        
+        
     }
-    
-    func fetchMovies() {
-        let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=5f89533e24a2ff0828389c5e1cb6f8e8")!
-        
-        let request = URLRequest(url: url, cachePolicy: . reloadIgnoringLocalCacheData, timeoutInterval: 10)
-        
-        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
-        
-        let task = session.dataTask(with: request) { (data, response, error) in
-            //This will run when the network request returns
-            if let error = error  {
-                print(error.localizedDescription)
-            } else if let data = data {
-                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-                print(dataDictionary)
-                
-                let movies = dataDictionary["results"] as! [[String: Any]]
-                self.movies = movies
-                self.tableView.reloadData()
-                self.refreshControl.endRefreshing()
-                self.activityIndicator.stopAnimating()
-            }
-        }
-        
-        task.resume()
-    }
-    
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movies.count
+        return filteredMovies.count
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath)as! MovieCell
         
+    
         
-        let movie = movies[indexPath.row]
+        let movie = filteredMovies[indexPath.row]
         let title = movie["title"] as! String
         let overview = movie["overview"] as! String
         cell.titleLabel.text = title
@@ -137,10 +85,51 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     
+    // This method updates filteredData based on the text in the Search Box
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        
+        if searchText.isEmpty {
+            filteredMovies = movies
+        } else {
+            filteredMovies = movies.filter {(movie: [String: Any]) -> Bool in
+                let title = movie["title"] as! String
+                return title.range (of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
+            }
+        }
+            
+        tableView.reloadData()
+    }
     
-   
     
     
+    func fetchMovies() {
+        let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=5f89533e24a2ff0828389c5e1cb6f8e8")!
+        
+        let request = URLRequest(url: url, cachePolicy: . reloadIgnoringLocalCacheData, timeoutInterval: 10)
+        
+        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
+        
+        let task = session.dataTask(with: request) { (data, response, error) in
+            //This will run when the network request returns
+            if let error = error  {
+                print(error.localizedDescription)
+            } else if let data = data {
+                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+                print(dataDictionary)
+                
+                let movies = dataDictionary["results"] as! [[String: Any]]
+                self.movies = movies
+                self.filteredMovies = movies
+                self.tableView.reloadData()
+                self.refreshControl.endRefreshing()
+                self.activityIndicator.stopAnimating()
+                
+            }
+        }
+        
+        task.resume()
+    }
 
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

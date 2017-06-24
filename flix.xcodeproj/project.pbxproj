@@ -19,6 +19,8 @@
 		F7695C1F1EFB20FE00E55BEB /* NowPlayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7695C1E1EFB20FE00E55BEB /* NowPlayingViewController.swift */; };
 		F7695C231EFB368500E55BEB /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7695C221EFB368500E55BEB /* MovieCell.swift */; };
 		F7AF328E1EFC8EB4000A9562 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AF328D1EFC8EB4000A9562 /* DetailViewController.swift */; };
+		F7AF32B41EFDC52B000A9562 /* PosterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AF32B31EFDC52B000A9562 /* PosterCell.swift */; };
+		F7AF32B61EFDC57B000A9562 /* SuperheroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AF32B51EFDC57B000A9562 /* SuperheroViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		F7695C1E1EFB20FE00E55BEB /* NowPlayingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingViewController.swift; sourceTree = "<group>"; };
 		F7695C221EFB368500E55BEB /* MovieCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		F7AF328D1EFC8EB4000A9562 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		F7AF32B31EFDC52B000A9562 /* PosterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PosterCell.swift; sourceTree = "<group>"; };
+		F7AF32B51EFDC57B000A9562 /* SuperheroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperheroViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +179,7 @@
 			children = (
 				F7695C1E1EFB20FE00E55BEB /* NowPlayingViewController.swift */,
 				F7AF328D1EFC8EB4000A9562 /* DetailViewController.swift */,
+				F7AF32B51EFDC57B000A9562 /* SuperheroViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -183,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				F7695C221EFB368500E55BEB /* MovieCell.swift */,
+				F7AF32B31EFDC52B000A9562 /* PosterCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -469,6 +475,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7695C1F1EFB20FE00E55BEB /* NowPlayingViewController.swift in Sources */,
+				F7AF32B41EFDC52B000A9562 /* PosterCell.swift in Sources */,
+				F7AF32B61EFDC57B000A9562 /* SuperheroViewController.swift in Sources */,
 				F7AF328E1EFC8EB4000A9562 /* DetailViewController.swift in Sources */,
 				F7695C231EFB368500E55BEB /* MovieCell.swift in Sources */,
 				F7695BF11EFB16F900E55BEB /* AppDelegate.swift in Sources */,
