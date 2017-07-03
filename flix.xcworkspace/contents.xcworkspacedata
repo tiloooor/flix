@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Movie.swift">
+   </FileRef>
+   <FileRef
       location = "group:flix.xcodeproj">
    </FileRef>
    <FileRef
